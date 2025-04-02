@@ -14,7 +14,6 @@ SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 print(f"Attempting to connect to: {DATABASE_URL}")
 
-# Create all tables
 Base.metadata.create_all(bind=engine)
 
 def get_db():
