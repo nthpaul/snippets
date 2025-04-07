@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Three.js Basics</title>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    canvas {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script>
+    const scene = new THREE.Scene();
+
+    // creates the perspective camera, with a 75* fov, aspect ratio of the window, and near and far clipping planes
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+
+    // creates the WebGL renderer, which is a canvas element that will be used to render the scene
+    const renderer = new THREE.WebGLRenderer();
+
+    // sets the size of the renderer to the size of the window
+    renderer.setSize(window.innerWidth, window.innerHeight);
+
+    // appends the renderer's canvas element to the body of the document so it actually renders to the screen
+    document.body.appendChild(renderer.domElement);
+
+    // creates a cube geometry and a basic material and combines them into a mesh
+    const geometry = new THREE.BoxGeometry(1, 1, 1);
+    const material = new THREE.MeshBasicMaterial({color: 0xff0000});
+    const cube = new THREE.Mesh(geometry, material);
+    cube.position.x = -1; // moves the cube 1 units to the left
+    scene.add(cube);
+
+    // shaded cube that reflects light
+    const phongGeometry = new THREE.BoxGeometry(1, 1, 1);
+    const phongMaterial = new THREE.MeshPhongMaterial({color: 0xff0000}); // material that reflects light
+    const phongCube = new THREE.Mesh(phongGeometry, phongMaterial);
+    phongCube.position.x = 1;
+    scene.add(phongCube);
+
+    // light source
+    const light = new THREE.PointLight(0xffffff, 1, 100);
+    light.position.set(5, 5, 5);
+    scene.add(light);
+
+    // sets the position of the camera 5 units away from the origin along the z-axis (the origin is 0,0,0)
+    camera.position.z = 5;
+
+    // animation loop
+    function animate() {
+      // this is a browser method that schedules animate to run before the next screen repaint.
+      // we recursively loop the animation by calling animate again and again
+      requestAnimationFrame(animate);
+      cube.rotation.x += 0.01;
+      cube.rotation.y -= 0.01;
+
+      phongCube.rotation.x += 0.01;
+      phongCube.rotation.y -= 0.01;
+
+      // tells the renderer to render the scene from the perspective of the camera
+      renderer.render(scene, camera);
+    }
+    animate();
+  </script>
+</body>
+
+</html
