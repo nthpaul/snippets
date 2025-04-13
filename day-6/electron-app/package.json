@@ -1,0 +1,70 @@
+{
+  "name": "electron-app",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "electron-main.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "electron-dev": "concurrently \"bun run dev\" \"wait-on http://localhost:3000 && cross-env NODE_ENV=development electron .\"",
+    "electron-build": "next build && electron-builder",
+    "electron-start": "cross-env NODE_ENV=production electron ."
+  },
+  "dependencies": {
+    "@tiptap/extension-bold": "^2.11.7",
+    "@tiptap/extension-bullet-list": "^2.11.7",
+    "@tiptap/extension-document": "^2.11.7",
+    "@tiptap/extension-heading": "^2.11.7",
+    "@tiptap/extension-history": "^2.11.7",
+    "@tiptap/extension-italic": "^2.11.7",
+    "@tiptap/extension-list-item": "^2.11.7",
+    "@tiptap/extension-ordered-list": "^2.11.7",
+    "@tiptap/extension-paragraph": "^2.11.7",
+    "@tiptap/extension-placeholder": "^2.11.7",
+    "@tiptap/extension-strike": "^2.11.7",
+    "@tiptap/extension-text": "^2.11.7",
+    "@tiptap/pm": "^2.11.7",
+    "@tiptap/react": "^2.11.7",
+    "@tiptap/starter-kit": "^2.11.7",
+    "@tiptap/suggestion": "^2.11.7",
+    "electron": "^35.1.5",
+    "electron-builder": "^26.0.12",
+    "electron-squirrel-startup": "^1.0.1",
+    "next": "15.3.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tippy.js": "^6.3.7"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "@tailwindcss/typography": "^0.5.16",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "concurrently": "^9.1.2",
+    "cross-env": "^7.0.3",
+    "eslint": "^9",
+    "eslint-config-next": "15.3.0",
+    "tailwindcss": "^4",
+    "typescript": "^5",
+    "wait-on": "^8.0.3"
+  },
+  "build": {
+    "appId": "com.electron.text-editor",
+    "productName": "Text Editor",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "out/**/*",
+      "electron-main.js"
+    ],
+    "mac": {
+      "category": "public.app-category.productivity"
+    }
+  }
+}
