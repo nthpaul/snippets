@@ -1,3 +1,5 @@
+![image](https://github.com/user-attachments/assets/472ecd82-0455-4bd8-b971-c8fdd93e6c8a)
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started

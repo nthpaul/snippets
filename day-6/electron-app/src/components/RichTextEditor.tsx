@@ -97,8 +97,10 @@ const CommandsList = ({ items, command }: CommandsListProps) => {
           key={index}
           onClick={() => selectItem(index)}
           onMouseEnter={() => setSelectedIndex(index)}
-          className={`w-full px-4 py-2 text-left hover:bg-gray-100 transition-colors ${
-            index === selectedIndex ? "bg-gray-100" : ""
+          className={`w-full px-4 py-2 text-left text-gray-800 hover:bg-gray-100 transition-colors ${
+            index === selectedIndex
+              ? "bg-gray-100 text-gray-900 font-medium"
+              : ""
           }`}
         >
           {item.title}
@@ -181,6 +183,7 @@ const suggestion = {
           interactive: true,
           trigger: "manual",
           placement: "bottom-start",
+          background: "white",
         });
       },
 
