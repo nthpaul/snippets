@@ -1,0 +1,2 @@
+- [Electron App](./electron-app) - Electron App w/ TipTap rich text editor
+- [Econometrics](./econometrics) - Python Econometrics study
