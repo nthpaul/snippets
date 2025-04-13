@@ -7,3 +7,5 @@
 4: [python consistent hashing (wip)](./day-4/python-consistent-hashing)
 
 5: [3js spinning cubes](./day-5/3js-spinning-cubes)
+
+6: [electron nextjs basic rich text editor with tiptap](./day-6/electron-app)
